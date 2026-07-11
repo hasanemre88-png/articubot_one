@@ -5,18 +5,20 @@
 
 
     <xacro:property name="chassis_length" value="0.335"/>
-    <xacro:property name="chassis_width" value="0.265"/>
-    <xacro:property name="chassis_height" value="0.138"/>
+    <xacro:property name="chassis_width" value="0.185"/> <!-- KODDA DEĞİŞTİ: Gerçek kasa genişliği 18.5 cm -->
+    <xacro:property name="chassis_height" value="0.130"/> <!-- KODDA DEĞİŞTİ: Gerçek kasa yüksekliği 13 cm -->
     <xacro:property name="chassis_mass" value="1.0"/>
-    <xacro:property name="wheel_radius" value="0.033"/>
-    <xacro:property name="wheel_thickness" value="0.026"/>
+    <xacro:property name="wheel_radius" value="0.0325"/> <!-- KODDA DEĞİŞTİ: 6.5 cm çap / 2 -->
+    <xacro:property name="wheel_thickness" value="0.028"/> <!-- KODDA DEĞİŞTİ: Gerçek tekerlek genişliği 2.8 cm -->
     <xacro:property name="wheel_mass" value="0.05"/>
-    <xacro:property name="wheel_offset_x" value="0.226"/>
-    <xacro:property name="wheel_offset_y" value="0.1485"/>
-    <xacro:property name="wheel_offset_z" value="0.01"/>
-    <xacro:property name="caster_wheel_radius" value="0.01"/>
+    <xacro:property name="wheel_offset_x" value="0.274"/> <!-- KODDA DEĞİŞTİ: Arka yüzden tekerlek aksına 27.4 cm -->
+    <xacro:property name="wheel_separation" value="0.219"/> <!-- KODDA DEĞİŞTİ: 18.5 cm kasa + 2.8 cm tekerlek + iki yanda yaklaşık 3 mm boşluk -->
+    <xacro:property name="wheel_offset_y" value="${wheel_separation / 2}"/> <!-- KODDA DEĞİŞTİ: 0.1095 m; merkezden tek tekerlek merkezine -->
+    <xacro:property name="ground_clearance" value="0.023"/> <!-- KODDA DEĞİŞTİ: Kasa tabanı yerden 2.3 cm -->
+    <xacro:property name="wheel_offset_z" value="${wheel_radius - ground_clearance}"/> <!-- KODDA DEĞİŞTİ: 0.0095 m -->
+    <xacro:property name="caster_wheel_radius" value="0.007"/> <!-- KODDA DEĞİŞTİ: 14 mm bilye çapı / 2 -->
     <xacro:property name="caster_wheel_mass" value="0.01"/>
-    <xacro:property name="caster_wheel_offset_x" value="0.075"/>
+    <xacro:property name="caster_wheel_offset_x" value="0.060"/> <!-- KODDA DEĞİŞTİ: Arka yüzden caster merkezine 6 cm -->
     <xacro:property name="caster_wheel_offset_z" value="${wheel_offset_z - wheel_radius + caster_wheel_radius}"/>
 
     <material name="white">

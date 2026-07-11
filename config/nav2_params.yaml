@@ -14,8 +14,8 @@ amcl:
     global_frame_id: "map"
     lambda_short: 0.1
     laser_likelihood_max_dist: 2.0
-    laser_max_range: 100.0
-    laser_min_range: -1.0
+    laser_max_range: 12.0  # KODDA DEĞİŞTİ: RPLIDAR A2M12 maksimum menzili
+    laser_min_range: 0.2  # KODDA DEĞİŞTİ: RPLIDAR A2M12 minimum menzili
     laser_model_type: "likelihood_field"
     max_beams: 60
     max_particles: 2000
@@ -190,7 +190,8 @@ local_costmap:
       width: 3
       height: 3
       resolution: 0.05
-      robot_radius: 0.22
+      footprint: "[[0.080, 0.1235], [0.080, -0.1235], [-0.274, -0.1235], [-0.274, 0.1235]]"  # KODDA DEĞİŞTİ: Gerçek robot dış sınırları
+      footprint_padding: 0.01  # KODDA DEĞİŞTİ: 1 cm navigasyon güvenlik payı
       plugins: ["voxel_layer", "inflation_layer"]
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
@@ -229,7 +230,8 @@ global_costmap:
       global_frame: map
       robot_base_frame: base_link
       use_sim_time: True
-      robot_radius: 0.22
+      footprint: "[[0.080, 0.1235], [0.080, -0.1235], [-0.274, -0.1235], [-0.274, 0.1235]]"  # KODDA DEĞİŞTİ: Gerçek robot dış sınırları
+      footprint_padding: 0.01  # KODDA DEĞİŞTİ: 1 cm navigasyon güvenlik payı
       resolution: 0.05
       track_unknown_space: true
       plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
